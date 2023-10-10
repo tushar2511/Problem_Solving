@@ -1,1 +1,17 @@
+/* To count the frequency of each element from the string, maintaining the insertion order */
 
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Count_Elements {
+	public static void main(String[] args) {
+
+	String s="helloworld";
+	List<String> str = Arrays.asList(s.split(""));
+	Map<String, Long> map = str.stream()
+			                   .collect(Collectors.groupingBy((x->x),
+			                    		LinkedHashMap::new,                //to maintain the insertion order
+			                    		Collectors.counting()));           //to count the frequency and it returns long data type
+	map.forEach((k,v)->System.out.println(k+"  "+v));
+	}
+}
