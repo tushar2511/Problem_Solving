@@ -1,1 +1,18 @@
+/* Find second highest in an array when elements are repeating */
 
+import java.util.*;
+
+public class Second {
+	public static void main(String[] args) {
+
+	Integer arr[]= {10, 5, 20, 15, 20, 40, 40, 50, 50};
+	List<Integer> set = Arrays.asList(arr);
+	Optional<Integer> smax = set.stream()                           //will avoid NullPointerException
+			                    .distinct()
+			                    .sorted(Collections.reverseOrder())
+			                    .limit(2)
+			                    .skip(1)
+			                    .findFirst();
+	System.out.println("Second maximum is: "+smax);
+	}
+}
