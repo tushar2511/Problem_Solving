@@ -1,5 +1,3 @@
-package com.Pract;
-
 import java.util.*;
 
 public class Sort_Object_in_List {
